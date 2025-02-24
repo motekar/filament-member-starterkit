@@ -26,13 +26,15 @@ class UserSeeder extends Seeder
         ];
 
         foreach ($admins as $admin) {
-            User::create([
-                'name' => $admin['name'],
-                'email' => $admin['email'],
-                'password' => Hash::make('password'),
-                'phone' => $admin['phone'],
-                'role' => UserRole::ADMIN->value,
-            ]);
+            User::updateOrCreate(
+                ['email' => $admin['email']],
+                [
+                    'name' => $admin['name'],
+                    'password' => Hash::make('password'),
+                    'phone' => $admin['phone'],
+                    'role' => UserRole::ADMIN->value,
+                ]
+            );
         }
 
         // Create regular users
@@ -90,13 +92,15 @@ class UserSeeder extends Seeder
         ];
 
         foreach ($members as $member) {
-            User::create([
-                'name' => $member['name'],
-                'email' => $member['email'],
-                'password' => Hash::make('password'),
-                'phone' => $member['phone'],
-                'role' => UserRole::MEMBER->value,
-            ]);
+            User::updateOrCreate(
+                ['email' => $member['email']],
+                [
+                    'name' => $member['name'],
+                    'password' => Hash::make('password'),
+                    'phone' => $member['phone'],
+                    'role' => UserRole::MEMBER->value,
+                ]
+            );
         }
     }
 }
