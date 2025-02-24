@@ -6,7 +6,6 @@ A Laravel-based starter kit built with [Filament Admin](https://filamentphp.com/
 
 - 🚀 Built with Laravel 11 and PHP 8.2
 - 💼 Filament Admin v3.2 for beautiful admin interface
-- ⏰ Time picker integration
 - 🔐 Login link functionality
 - 👥 User impersonation capability
 - 🎨 TailwindCSS for styling
